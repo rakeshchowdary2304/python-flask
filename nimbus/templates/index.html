@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit and View Data</h1>
+        
+        <form id="dataForm" method="POST" action="/add-data">
+            <input type="text" id="dataInput" name="data" placeholder="Enter some data" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Stored Data:</h2>
+        <ul id="dataList">
+            {% for item in data %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // Optionally add any frontend JavaScript here, such as form validation.
+    </script>
+</body>
+</html>
